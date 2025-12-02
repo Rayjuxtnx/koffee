@@ -176,102 +176,132 @@
         }
         
         /* ============================================
-           MODERN NAVIGATION (UPDATED)
-        ============================================ */
-        header {
-            padding: 20px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(253, 252, 248, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(212, 180, 131, 0.2);
-            box-shadow: var(--shadow-sm);
-            transition: all var(--transition-base);
-        }
-        
-        header.scrolled {
-            padding: 15px 0;
-            background-color: rgba(253, 252, 248, 0.98);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            background: linear-gradient(90deg, var(--deep-brown), var(--soft-gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .logo:hover {
-            text-shadow: 0 0 15px rgba(212, 180, 131, 0.3);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 40px;
-        }
-        
-        .nav-links a {
-            color: var(--charcoal);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.05rem;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 8px 0;
-        }
-        
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--soft-gold);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--deep-brown), var(--soft-gold));
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after, .nav-links a.active::after {
-            width: 100%;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--deep-brown);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            padding: 5px;
-            border-radius: 4px;
-        }
-        
-        .mobile-menu-btn:hover {
-            color: var(--soft-gold);
-            background: rgba(212, 180, 131, 0.1);
-        }
-        
+          /* ===========================================
+   MODERN NAVIGATION (UPDATED & MOBILE-FRIENDLY)
+=========================================== */
+header {
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(253, 252, 248, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 180, 131, 0.2);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+header.scrolled {
+    padding: 15px 0;
+    background-color: rgba(253, 252, 248, 0.98);
+    box-shadow: var(--shadow-md);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, var(--deep-brown), var(--soft-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    text-shadow: 0 0 15px rgba(212, 180, 131, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: var(--charcoal);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 8px 0;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--soft-gold);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--deep-brown), var(--soft-gold));
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--deep-brown);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.mobile-menu-btn:hover {
+    color: var(--soft-gold);
+    background: rgba(212, 180, 131, 0.1);
+}
+
+/* ======================
+   MOBILE NAVIGATION LOGIC
+====================== */
+@media (max-width: 767px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none; /* hidden by default */
+        flex-direction: column;
+        gap: 15px;
+        background-color: rgba(253, 252, 248, 0.95); /* keep your page color */
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        z-index: 9999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
         /* ============================================
            MODERN HERO SECTION
         ============================================ */
