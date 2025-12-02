@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blu Koffee Studios |Timeless Modern Photography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ============================================
+           MODERN CSS RESET & VARIABLES
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Make images and media scale responsively */
+        img, picture, video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        :root {
+            /* Modern Color Palette with Vintage Accents */
+            --cream: #f9f7f2;
+            --cream-dark: #f2efe6;
+            --sepia: #a0866d;
+            --sepia-light: #c9b8a8;
+            --deep-brown: #4a362f;
+            --muted-green: #617a73;
+            --soft-gold: #d4b483;
+            --charcoal: #2a2a2a;
+            --charcoal-light: #3a3a3a;
+            --paper: #fdfcf8;
+            --white: #ffffff;
+            
+            /* Modern Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.16);
+            
+            /* Modern Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            --space-xxl: 8rem;
+            
+            /* Modern Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Modern Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 50%;
+            
+            /* Modern Gradients */
+            --gradient-gold: linear-gradient(135deg, #d4b483 0%, #f0d9b5 100%);
+            --gradient-vintage: linear-gradient(135deg, #a0866d 0%, #c9b8a8 100%);
+            --gradient-dark: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--paper);
+            color: var(--charcoal);
+            line-height: 1.7;
+            position: relative;
+            overflow-x: hidden;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        
+        /* ============================================
+           MODERN TEXTURE OVERLAYS
+        ============================================ */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(212, 180, 131, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(74, 54, 47, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* Subtle Film Grain */
+        .texture-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.5;
+            mix-blend-mode: overlay;
+        }
+        
+        /* ============================================
+           MODERN UTILITY CLASSES
+        ============================================ */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--deep-brown);
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            position: relative;
+            letter-spacing: -0.02em;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-gold);
+            margin: var(--space-sm) auto;
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--sepia);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto var(--space-xl);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity var(--transition-slow), 
+                        transform var(--transition-slow);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ============================================
+           MODERN NAVIGATION
+        ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(212, 180, 131, 0.2);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+        }
+        
+        .navbar.scrolled {
+            padding: 0.75rem 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--deep-brown);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .logo span {
+            color: var(--soft-gold);
+            font-weight: 600;
+        }
+        
+        .logo::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
+            transform-origin: right;
+        }
+        
+        .logo:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--space-md);
+            align-items: center;
+        }
+        
+        .nav-menu li {
+            position: relative;
+        }
+        
+        .nav-menu a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            padding: 0.5rem 0;
+            transition: color var(--transition-fast);
+            position: relative;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--soft-gold);
+        }
+        
+        .nav-menu a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            transition: width var(--transition-base);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-menu a.active {
+            color: var(--soft-gold);
+        }
+        
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 30px;
+            height: 30px;
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--deep-brown);
+            margin: 6px 0;
+            transition: all var(--transition-base);
+            border-radius: 2px;
+        }
+        
+        /* ============================================
+           MODERN HERO SECTION
+        ============================================ */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: 
+                linear-gradient(135deg, rgba(42, 42, 42, 0.4) 0%, rgba(74, 54, 47, 0.6) 100%),
+                url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(212, 180, 131, 0.1) 0%, 
+                transparent 30%, 
+                transparent 70%, 
+                rgba(74, 54, 47, 0.1) 100%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            max-width: 900px;
+            padding: 0 var(--space-md);
+            z-index: 10;
+            position: relative;
+        }
+        
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-md);
+            line-height: 1.1;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #f9f7f2 0%, #d4b483 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: var(--space-xl);
+            opacity: 0.9;
+            letter-spacing: 0.02em;
+            font-family: 'Inter', sans-serif;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-divider {
+            width: 100px;
+            height: 2px;
+            background: var(--gradient-gold);
+            margin: 0 auto var(--space-xl);
+            border-radius: 1px;
+            opacity: 0.8;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: var(--space-lg);
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        /* ============================================
+           MODERN GALLERY SECTION
+        ============================================ */
+        .gallery {
+            padding: var(--space-xxl) 0;
+            background-color: var(--paper);
+            position: relative;
+        }
+        
+        .gallery::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 0%, rgba(212, 180, 131, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
++        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-slow);
+            aspect-ratio: 1/1;
+            background-color: var(--cream);
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all var(--transition-slow);
+            filter: brightness(0.95) contrast(1.05);
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.08);
+            filter: sepia(0.2) brightness(1.05) contrast(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, 
+                rgba(42, 42, 42, 0.8) 0%, 
+                transparent 40%);
+            display: flex;
+            align-items: flex-end;
+            padding: var(--space-md);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-caption {
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            transform: translateY(20px);
+            transition: transform var(--transition-base);
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* ============================================
+           MODERN ABOUT SECTION
+        ============================================ */
+        .about {
+            padding: var(--space-xxl) 0;
+            background-color: var(--cream-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: linear-gradient(135deg, 
+                rgba(212, 180, 131, 0.1) 0%, 
+                rgba(160, 134, 109, 0.05) 50%, 
+                transparent 100%);
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-img {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            aspect-ratio: 1/1;
+            max-width: 500px;
+        }
+        
+        .about-img::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid var(--soft-gold);
+            border-radius: var(--radius-xl);
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            padding: var(--space-md);
+        }
+        
+        .about-text p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: var(--space-md);
+            color: var(--charcoal);
+            font-weight: 400;
+        }
+        
+        .about-text p:first-of-type::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--soft-gold);
+            float: left;
+            line-height: 0.8;
+            margin-right: 0.5rem;
+            margin-top: 0.25rem;
+            font-weight: 600;
+        }
+        
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--deep-brown);
+            margin-top: var(--space-lg);
+            position: relative;
+            display: inline-block;
+            padding-left: var(--space-md);
+        }
+        
+        .signature::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 30px;
+            height: 2px;
+            background: var(--gradient-gold);
+            transform: translateY(-50%);
+        }
+        
+        /* ============================================
+           MODERN SERVICES SECTION
+        ============================================ */
+        .services {
+            padding: var(--space-xxl) 0;
+            background-color: var(--paper);
+            position: relative;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(212, 180, 131, 0.1);
+        }
+        
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
+            transform-origin: left;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-gold);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-md);
+            font-size: 1.75rem;
+            color: var(--white);
+            transition: all var(--transition-base);
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .service-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--deep-brown);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .service-desc {
+            font-size: 1rem;
+            color: var(--charcoal);
+            line-height: 1.7;
+            opacity: 0.8;
+            margin-bottom: var(--space-md);
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(212, 180, 131, 0.2);
+        }
+        
+        .service-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--sepia);
+        }
+        
+        .service-features li i {
+            color: var(--soft-gold);
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+        
+        /* ============================================
+           MODERN FOOTER
+        ============================================ */
+        .footer {
+            background: var(--gradient-dark);
+            color: var(--white);
+            padding: var(--space-xl) 0 var(--space-md);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-gold);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .footer-section {
+            padding: 0 var(--space-sm);
+        }
+        
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--soft-gold);
+            margin-bottom: var(--space-md);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gradient-gold);
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+        
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-icon:hover {
+            background: var(--soft-gold);
+            color: var(--deep-brown);
+            transform: translateY(-3px);
+            border-color: var(--soft-gold);
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--space-sm);
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info i {
+            color: var(--soft-gold);
+            margin-right: var(--space-sm);
+            margin-top: 2px;
+            min-width: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--soft-gold);
+            transform: translateX(4px);
+        }
+        
+        .footer-links a i {
+            font-size: 0.8rem;
+            color: var(--soft-gold);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            opacity: 0.6;
+            letter-spacing: 0.02em;
+        }
+        
+        /* ============================================
+           MODERN RESPONSIVE STYLES
+        ============================================ */
+        @media (max-width: 1200px) {
+            .brand-name {
+                font-size: 4.5rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                gap: var(--space-lg);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .brand-name {
+                font-size: 3.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.25rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .about-img {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .about-text {
+                padding: 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: var(--space-xl) var(--space-md);
+                transition: right var(--transition-slow);
+                box-shadow: var(--shadow-xl);
+                justify-content: flex-start;
+                padding-top: 80px;
+                gap: var(--space-sm);
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                width: 100%;
+                margin: 0;
+            }
+            
+            .nav-menu a {
+                display: block;
+                padding: var(--space-sm) 0;
+                font-size: 1.1rem;
+                border-bottom: 1px solid rgba(212, 180, 131, 0.1);
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -8px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                height: 90vh;
+                min-height: 600px;
+                background-attachment: scroll; /* avoid fixed backgrounds on mobile */
+            }
+            
+            .brand-name {
+                font-size: 2.75rem;
+            }
+            
+            .tagline {
+                font-size: 1.125rem;
+            }
+            
+            .section-title {
+                font-size: 2.25rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+            
+            .container {
+                padding: 0 var(--space-sm);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .brand-name {
+                font-size: 2.25rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                min-height: 500px;
+            }
+            
+            .service-card {
+                padding: var(--space-md);
+            }
+        }
+        
+        /* ============================================
+           MODERN ANIMATION & INTERACTION
+        ============================================ */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Texture Overlay -->
+    <div class="texture-overlay"></div>
+
+   <!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">Blu Koffee<span>Studios</span></a>
+        
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <ul class="nav-menu" id="nav-menu">
+            <!-- Only the four home pages -->
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-in floating">
+            <h1 class="brand-name">Blu Koffee Studios</h1>
+            <div class="hero-divider"></div>
+            <p class="tagline">Capturing Timeless Moments with Modern Elegance</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery container" id="gallery">
+        <h2 class="section-title fade-in">Featured Gallery</h2>
+        <p class="section-subtitle fade-in">A curated collection of timeless moments captured with precision and artistry</p>
+        <div class="gallery-grid">
+            <div class="gallery-item fade-in">
+                <img src="images/baby shower.jpg" 
+                     alt="Vintage portrait photography with soft lighting and warm tones" 
+                     class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">baby shower</div>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="images/birthday 2.jpg" 
+                     alt="Elegant vintage wedding photography capturing intimate moments" 
+                     class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">birthday</div>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="images/bridal shower.jpg" 
+                     alt="Nature photography with dramatic lighting and composition" 
+                     class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">bridal shower </div>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="images/couple 1.jpg" 
+                     alt="Studio portrait with artistic lighting and vintage styling" 
+                     class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">couples</div>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="images/graduation 1.jpg" 
+                     alt="Event photography capturing candid moments and celebrations" 
+                     class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">graduation 1</div>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="images/in the dark.jpg" 
+                     alt="Vintage landscape photography with atmospheric perspective" 
+                     class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">in the dark</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about container" id="about">
+        <h2 class="section-title fade-in">About Me</h2>
+        <div class="about-content">
+            <div class="about-img fade-in">
+                <img src="images/man 1.jpg" 
+                     alt="Professional photographer in a creative studio environment">
+            </div>
+            <div class="about-text fade-in">
+                <p>For over two years, I have been preserving memories through the lens of my camera, capturing the beauty in fleeting moments. My journey began with my grandfather's old film camera, and since then, I've dedicated myself to the art of photography with a vintage soul.</p>
+                <p>Specializing in wedding, portrait, and nature photography, I approach each project with a storyteller's eye, seeking to capture the emotion, connection, and authenticity of every moment. My style is characterized by natural lighting, soft tones, and a timeless quality that harkens back to the golden age of film photography.</p>
+                <p>Every photograph I take is more than just an image—it's a piece of history, a memory preserved for generations to come. Let me help you capture your timeless moments.</p>
+                <div class="signature">Alexandra Morgan</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services container" id="services">
+        <h2 class="section-title fade-in">Photography Services</h2>
+        <p class="section-subtitle fade-in">Professional photography services blending vintage artistry with modern execution</p>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-ring"></i>
+                </div>
+                <h3 class="service-title">Wedding Photography</h3>
+                <p class="service-desc">Capture the magic of your special day with timeless, romantic photography that tells your unique love story with elegance and emotion.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Full-day coverage</li>
+                    <li><i class="fas fa-check"></i> Engagement session</li>
+                    <li><i class="fas fa-check"></i> Premium album design</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h3 class="service-title">Portrait Sessions</h3>
+                <p class="service-desc">Classic and contemporary portraits that reveal the true personality and beauty of each subject through artistic composition.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Studio & outdoor options</li>
+                    <li><i class="fas fa-check"></i> Professional styling</li>
+                    <li><i class="fas fa-check"></i> Digital + print packages</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-glass-cheers"></i>
+                </div>
+                <h3 class="service-title">Events Coverage</h3>
+                <p class="service-desc">Document your important moments with candid, heartfelt photography that captures the essence of any celebration or gathering.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Corporate & private events</li>
+                    <li><i class="fas fa-check"></i> Candid storytelling</li>
+                    <li><i class="fas fa-check"></i> Fast delivery</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <h3 class="service-title">Nature Photography</h3>
+                <p class="service-desc">Stunning landscapes and nature photography that captures the beauty of the natural world with a vintage, artistic perspective.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Golden hour sessions</li>
+                    <li><i class="fas fa-check"></i> Location scouting</li>
+                    <li><i class="fas fa-check"></i> Fine art prints</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h3 class="service-title">Studio Shoots</h3>
+                <p class="service-desc">Professional studio photography with vintage-inspired sets, lighting, and props for a classic, timeless look.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Vintage prop collection</li>
+                    <li><i class="fas fa-check"></i> Professional lighting</li>
+                    <li><i class="fas fa-check"></i> Multiple backdrops</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Blu Koffee Studios</h3>
+                    <p>Preserving memories through the timeless art of photography. Blending vintage aesthetics with modern techniques to capture your most precious moments.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+             <div class="footer-section">
+                <h3 class="footer-title">Contact Info</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-envelope"></i> blukoffee studios.com</li>
+                    <li><i class="fas fa-phone"></i> (0111955641)</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Nairobi</li>
+                    <li><i class="fas fa-camera"></i> Available Nationwide  for assignments</li>
+                </ul>
+            </div>
+            
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="current-year"></span> Blu Koffee Studios. All rights reserved. Crafted with passion and precision.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // MODERN JAVASCRIPT FUNCTIONALITY
+        // ============================================
+
+        // DOM Elements
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const currentYear = document.getElementById('current-year');
+
+        // Set current year
+        currentYear.textContent = new Date().getFullYear();
+
+        // ============================================
+        // NAVBAR SCROLL EFFECT
+        // ============================================
+        function handleScroll() {
+            // Navbar scroll effect
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Active nav link based on scroll position
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // ============================================
+        // MOBILE NAVIGATION TOGGLE
+        // ============================================
+        function toggleMobileMenu() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // ============================================
+        // SCROLL REVEAL ANIMATIONS
+        // ============================================
+        function revealOnScroll() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // ============================================
+        // SMOOTH SCROLLING
+        // ============================================
+        function smoothScroll(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (!targetElement) return;
+            
+            // Close mobile menu if open
+            if (navMenu.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+            
+            // Scroll to target
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+
+        // ============================================
+        // PARALLAX EFFECT FOR HERO
+        // ============================================
+        function handleParallax() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        }
+
+        // ============================================
+        // CARD HOVER ENHANCEMENTS
+        // ============================================
+        function enhanceCardHovers() {
+            const cards = document.querySelectorAll('.service-card, .gallery-item');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.zIndex = '10';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    setTimeout(() => {
+                        card.style.zIndex = '1';
+                    }, 300);
+                });
+            });
+        }
+
+        // ============================================
+        // INITIALIZE EVERYTHING
+        // ============================================
+        function init() {
+            // Initial scroll effects
+            handleScroll();
+            revealOnScroll();
+            
+            // Event listeners
+            window.addEventListener('scroll', () => {
+                handleScroll();
+                revealOnScroll();
+                handleParallax();
+            });
+            
+            hamburger.addEventListener('click', toggleMobileMenu);
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', smoothScroll);
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (navMenu.classList.contains('active') && 
+                    !navMenu.contains(e.target) && 
+                    !hamburger.contains(e.target)) {
+                    toggleMobileMenu();
+                }
+            });
+            
+            // Enhance card hovers
+            enhanceCardHovers();
+            
+            // Initial reveal
+            setTimeout(() => {
+                revealOnScroll();
+            }, 100);
+        }
+
+        // Start everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+
+        // Handle resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (window.innerWidth > 992 && navMenu.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+            }, 250);
+        });
+
+        // Performance optimization
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    </script>
+</body>
+</html>

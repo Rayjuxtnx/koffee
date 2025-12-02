@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blu Koffee Studios | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and variables */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-charcoal: #121212;
+            --bg-dark-gray: #1a1a1a;
+            --accent-cyan: #00e0ff;
+            --accent-gold: #ffd700;
+            --accent-purple: #a855f7;
+            --text-light: #f5f5f5;
+            --text-gray: #b0b0b0;
+            --border-dark: #2a2a2a;
+            --shadow-color: rgba(0, 224, 255, 0.1);
+        }
+
+        /* Make media elements fluid */
+        img, picture, video { max-width: 100%; height: auto; display: block; }
+
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
+
+        /* ============================================
+           CONTAINER EFFECTS - GLOWING EFFECTS REMOVED
+        ============================================ */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px !important;
+            border-radius: 20px;
+            background: linear-gradient(145deg, 
+                rgba(26, 26, 26, 0.9), 
+                rgba(16, 16, 16, 0.95));
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.5);
+            transform: scale(1.02);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            animation: containerFloat 6s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        @keyframes containerFloat {
+            0%, 100% { transform: scale(1.02) translateY(0); }
+            50% { transform: scale(1.02) translateY(-8px); }
+        }
+
+        /* Inner container background effect (kept subtle) */
+        .container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 224, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.02) 0%, transparent 50%);
+            border-radius: 20px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Hover effect for containers */
+        .container:hover {
+            transform: scale(1.04) translateY(-5px);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.7);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Specific container adjustments for hero section */
+        .hero .container {
+            margin-top: 60px;
+            margin-bottom: 60px;
+            padding: 60px 50px !important;
+            background: linear-gradient(145deg, 
+                rgba(10, 10, 10, 0.95), 
+                rgba(20, 20, 20, 0.98));
+            animation: heroContainerPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes heroContainerPulse {
+            0%, 100% { 
+                transform: scale(1.05) translateY(0);
+                box-shadow: 
+                    0 30px 60px rgba(0, 0, 0, 0.6);
+            }
+            50% { 
+                transform: scale(1.06) translateY(-10px);
+                box-shadow: 
+                    0 40px 80px rgba(0, 0, 0, 0.8);
+            }
+        }
+
+        /* Footer container adjustment */
+        footer .container {
+            margin-top: 60px;
+            margin-bottom: 60px;
+            padding: 50px 40px !important;
+            background: linear-gradient(145deg, 
+                rgba(20, 20, 20, 0.98), 
+                rgba(10, 10, 10, 0.95));
+        }
+
+        /* Section container adjustments */
+        section .container {
+            margin: 50px auto;
+            padding: 50px 40px !important;
+        }
+
+        /* Add subtle texture to all containers */
+        .container {
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.02) 0%, transparent 100%),
+                linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2));
+        }
+
+        /* Responsive adjustments for the bigger containers */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 25px !important;
+                margin: 30px auto;
+                transform: scale(1) !important;
+            }
+            
+            .hero .container {
+                padding: 40px 30px !important;
+                margin-top: 40px;
+                margin-bottom: 40px;
+            }
+            
+            .container:hover {
+                transform: scale(1.01) translateY(-5px) !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px !important;
+                margin: 20px auto;
+            }
+        }
+
+        /* Ensure the effects don't interfere with other elements */
+        .container > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ============================================
+           NAVIGATION STYLES
+        ============================================ */
+        header { 
+            padding: 25px 0; 
+            position: sticky; 
+            top: 0; 
+            background-color: rgba(10,10,10,0.95); 
+            z-index:1000; 
+            border-bottom: 1px solid var(--border-dark); 
+        }
+        nav { 
+            display:flex; 
+            justify-content:space-between; 
+            align-items:center; 
+        }
+        .logo { 
+            font-weight:700; 
+            font-size:1.8rem; 
+            text-decoration:none; 
+            background: linear-gradient(90deg,var(--accent-cyan),var(--accent-purple)); 
+            -webkit-background-clip:text; 
+            color:transparent; 
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-cyan);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 15px var(--shadow-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 3px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 30px auto 40px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 224, 255, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 224, 255, 0.3);
+        }
+
+        /* ============================================
+           SERVICES SECTION
+        ============================================ */
+        .services-preview { 
+            padding: 80px 0; 
+            background: linear-gradient(180deg, rgba(18,18,18,0.95), rgba(16,16,16,0.98)); 
+        }
+        .section-title { 
+            font-size: 2.5rem; 
+            text-align:center; 
+            margin-bottom:40px; 
+            color:var(--accent-cyan); 
+            font-weight:700; 
+        }
+
+        .services-grid { 
+            display:grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap:28px; 
+            align-items:stretch; 
+        }
+
+        .service-card {
+            position: relative;
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 260px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.04);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+            backdrop-filter: blur(6px);
+            transition: transform 0.45s cubic-bezier(.2,.9,.2,1), box-shadow 0.45s ease, border-color 0.3s ease;
+            overflow: hidden;
+        }
+
+        .service-card::before { 
+            content: ''; 
+            position: absolute; 
+            inset: 0; 
+            pointer-events: none; 
+            background: linear-gradient(135deg, rgba(0,224,255,0.03), rgba(168,85,247,0.02)); 
+            mix-blend-mode: overlay; 
+        }
+
+        .service-card:hover { 
+            transform: translateY(-12px) scale(1.01); 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.65); 
+            border-color: rgba(0,224,255,0.12); 
+        }
+
+        .service-icon { 
+            font-size: 2.4rem; 
+            color: var(--accent-cyan); 
+            margin-bottom: 18px; 
+            background: linear-gradient(90deg, rgba(0,224,255,0.15), rgba(168,85,247,0.12)); 
+            padding: 12px; 
+            border-radius: 10px; 
+            display:inline-flex; 
+            align-items:center; 
+            justify-content:center; 
+        }
+        .service-card h3 { 
+            font-size:1.35rem; 
+            margin:0 0 12px 0; 
+            color:var(--text-light); 
+            line-height:1.2; 
+        }
+        .service-card p { 
+            color:var(--text-gray); 
+            margin-bottom:18px; 
+            flex:1 0 auto; 
+        }
+        .service-link { 
+            color:var(--accent-cyan); 
+            text-decoration:none; 
+            font-weight:600; 
+            display:inline-flex; 
+            align-items:center; 
+            gap:10px; 
+        }
+        .service-link i { 
+            opacity:0.95; 
+        }
+
+        @media (min-width: 1100px) { 
+            .services-grid { 
+                grid-template-columns: repeat(3,1fr); 
+                gap:36px; 
+            } 
+            .service-card { 
+                min-height:300px; 
+            } 
+        }
+        @media (max-width: 640px) { 
+            .services-grid { 
+                grid-template-columns:1fr; 
+                gap:18px; 
+            } 
+            .service-card { 
+                padding:20px; 
+                min-height:220px; 
+            } 
+            .service-icon { 
+                font-size:2rem; 
+                padding:10px; 
+            } 
+        }
+
+        /* ============================================
+           GALLERY SECTION
+        ============================================ */
+        .gallery-preview { 
+            padding:80px 0; 
+        }
+        .gallery-preview .container, .gallery-page .container { 
+            max-width:1400px; 
+            padding:0 28px; 
+        }
+
+        .gallery-grid { 
+            display:grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); 
+            gap:24px; 
+            align-items:start; 
+        }
+        .gallery-item { 
+            border-radius:12px; 
+            overflow:hidden; 
+            position:relative; 
+            aspect-ratio:4/3; 
+            cursor:pointer; 
+            transition: transform .45s cubic-bezier(.2,.9,.2,1), box-shadow .45s ease; 
+            box-shadow:0 12px 30px rgba(0,0,0,.45); 
+            background:linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.04)); 
+        }
+        .gallery-item:hover { 
+            transform: translateY(-10px) scale(1.02); 
+            box-shadow:0 30px 60px rgba(0,0,0,.6); 
+        }
+        .gallery-item img { 
+            width:100%; 
+            height:100%; 
+            object-fit:cover; 
+            display:block; 
+            transition: transform .6s ease; 
+        }
+        .gallery-overlay { 
+            padding:16px; 
+        }
+        .gallery-overlay h3 { 
+            margin:0; 
+            font-size:1.05rem; 
+            letter-spacing:.02em; 
+            text-transform:capitalize; 
+        }
+
+        @media (min-width:1200px) { 
+            .gallery-grid { 
+                grid-template-columns: repeat(auto-fit, minmax(420px,1fr)); 
+                gap:32px; 
+            } 
+            .gallery-item { 
+                border-radius:16px; 
+                aspect-ratio:16/10; 
+            } 
+            .gallery-overlay h3 { 
+                font-size:1.25rem; 
+            } 
+        }
+        @media (min-width:900px) and (max-width:1199px) { 
+            .gallery-grid { 
+                grid-template-columns: repeat(auto-fit, minmax(360px,1fr)); 
+                gap:28px; 
+            } 
+            .gallery-item { 
+                aspect-ratio:4/3; 
+            } 
+        }
+        @media (max-width:480px) { 
+            .gallery-grid, .gallery-full { 
+                grid-template-columns:1fr; 
+                gap:16px; 
+            } 
+        }
+
+        /* ============================================
+           FOOTER STYLES
+        ============================================ */
+        footer { 
+            border-top:1px solid var(--border-dark); 
+            padding:60px 0 30px; 
+            background-color:var(--bg-charcoal); 
+        }
+        .footer-content { 
+            display:grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); 
+            gap:40px; 
+            margin-bottom:40px; 
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-links h3, .footer-social h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent-cyan);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--bg-dark-gray);
+            border-radius: 50%;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--accent-cyan);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-dark);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           RESPONSIVE STYLES
+        ============================================ */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-charcoal);
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                gap: 25px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                border-bottom: 1px solid var(--border-dark);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 80px 0 50px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Blu Koffee Studios</a>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page Content -->
+    <main id="mainContent">
+        <!-- Home Page -->
+        <section class="hero">
+            <div class="container">
+                <h1>Capture Moments That Last Forever</h1>
+                <p>Professional photography services specializing in portraits, events, commercial work, and creative projects. Based in Nairobi with a passion for visual storytelling.</p>
+                <a href="contact.html" class="cta-button">Book a Session</a>
+            </div>
+        </section>
+
+        <section class="services-preview">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-camera-retro"></i>
+                        </div>
+                        <h3>Portrait Photography</h3>
+                        <p>Professional portraits that capture personality and emotion in stunning visual narratives.</p>
+                        <a href="services.html#portrait" class="service-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-ring"></i>
+                        </div>
+                        <h3>Wedding Photography</h3>
+                        <p>Capture the magic of your special day with elegant, timeless wedding photography.</p>
+                        <a href="services.html#wedding" class="service-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Commercial Photography</h3>
+                        <p>High-quality product and brand photography that elevates your business visuals.</p>
+                        <a href="services.html#commercial" class="service-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-preview">
+            <div class="container">
+                <h2 class="section-title">Recent Work</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/gallary cooparate 1.jpg" alt="Portrait photography">
+                        <div class="gallery-overlay">
+                            <h3>Portrait Session</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/graduatio gallary 1.jpg" alt="Event photography">
+                        <div class="gallery-overlay">
+                            <h3>Graduation photos</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/gallary preoduct.jpg" alt="Product photography">
+                        <div class="gallery-overlay">
+                            <h3>Product Shoot</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/gallary 1.jpg" alt="Wedding photography">
+                        <div class="gallery-overlay">
+                            <h3>personal portraits</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/couple 1.jpg" alt="Wedding photography">
+                        <div class="gallery-overlay">
+                            <h3>Couple photos</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/in the dark 2.jpg" alt="Wedding photography">
+                        <div class="gallery-overlay">
+                            <h3>Symbolic pictures</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Blu Koffee Studios</div>
+                    <p>Professional photography services based in Nairobi, Kenya. Specializing in portraits, weddings, commercial work, and creative projects.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Pinterest">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Blu Koffee Studios. All rights reserved. | Nairobi, Kenya
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Simple page routing for demo purposes
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if we're on a specific page based on URL hash
+            const hash = window.location.hash.substring(1);
+            
+            if (hash && ['services', 'gallery', 'contact'].includes(hash)) {
+                loadPage(hash);
+            }
+            
+            // Handle navigation links
+            document.querySelectorAll('.nav-links a, .service-link, .cta-button').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+
+                    if (href && href.includes('.html')) {
+                        // Update active nav link
+                        document.querySelectorAll('.nav-links a').forEach(navLink => {
+                            navLink.classList.remove('active');
+                            if (navLink.getAttribute('href') === href) {
+                                navLink.classList.add('active');
+                            }
+                        });
+
+                        // Close mobile menu if open
+                        if (navLinks && navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            if (mobileMenuBtn) mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Function to load page content
+        function loadPage(pageName) {
+            const mainContent = document.getElementById('mainContent');
+            
+            // Reset active class on all nav links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `${pageName}.html`) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Page content based on page name
+            switch(pageName) {
+                case 'services':
+                    mainContent.innerHTML = `
+                        <section class="page-hero">
+                            <div class="container">
+                                <h1>Our Services</h1>
+                                <p>Professional photography services tailored to your needs. From portraits to commercial work, we deliver exceptional quality.</p>
+                            </div>
+                        </section>
+                        
+                        <section class="services-page" id="servicesPage">
+                            <div class="container">
+                                <div class="service-detail" id="portrait">
+                                    <div class="service-image">
+                                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Portrait Photography">
+                                    </div>
+                                    <div class="service-text">
+                                        <h2>Portrait Photography</h2>
+                                        <p>Capture your personality, emotion, and story through professional portrait sessions. Whether for personal use, professional profiles, or family memories, we create stunning images that reflect who you are.</p>
+                                        <ul class="service-features">
+                                            <li><i class="fas fa-check"></i> Professional studio or location shooting</li>
+                                            <li><i class="fas fa-check"></i> Multiple outfit changes</li>
+                                            <li><i class="fas fa-check"></i> Professional retouching</li>
+                                            <li><i class="fas fa-check"></i> High-resolution digital files</li>
+                                            <li><i class="fas fa-check"></i> Print options available</li>
+                                        </ul>
+                                        <div class="price">Starting from KES 15,000</div>
+                                        <a href="contact.html" class="cta-button">Book a Session</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="service-detail" id="wedding">
+                                    <div class="service-image">
+                                        <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Wedding Photography">
+                                    </div>
+                                    <div class="service-text">
+                                        <h2>Wedding Photography</h2>
+                                        <p>Your wedding day is a story waiting to be told. We capture every moment - from the anticipation of getting ready to the joy of the celebration - creating timeless memories you'll cherish forever.</p>
+                                        <ul class="service-features">
+                                            <li><i class="fas fa-check"></i> Full-day coverage</li>
+                                            <li><i class="fas fa-check"></i> Second photographer included</li>
+                                            <li><i class="fas fa-check"></i> Engagement session</li>
+                                            <li><i class="fas fa-check"></i> Online gallery for sharing</li>
+                                            <li><i class="fas fa-check"></i> Premium wedding album</li>
+                                        </ul>
+                                        <div class="price">Starting from KES 80,000</div>
+                                        <a href="contact.html" class="cta-button">Inquire About Packages</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="service-detail" id="commercial">
+                                    <div class="service-image">
+                                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Commercial Photography">
+                                    </div>
+                                    <div class="service-text">
+                                        <h2>Commercial Photography</h2>
+                                        <p>Elevate your brand with professional commercial photography. We create compelling visual content for websites, marketing materials, social media, and advertising campaigns that capture attention and communicate your brand story.</p>
+                                        <ul class="service-features">
+                                            <li><i class="fas fa-check"></i> Product photography</li>
+                                            <li><i class="fas fa-check"></i> Corporate headshots</li>
+                                            <li><i class="fas fa-check"></i> Brand storytelling</li>
+                                            <li><i class="fas fa-check"></i> E-commerce ready images</li>
+                                            <li><i class="fas fa-check"></i> Fast turnaround</li>
+                                        </ul>
+                                        <div class="price">Custom quotes based on project</div>
+                                        <a href="contact.html" class="cta-button">Discuss Your Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    `;
+                    break;
+                    
+                case 'gallery':
+                    mainContent.innerHTML = `
+                        <section class="page-hero">
+                            <div class="container">
+                                <h1>Photo Gallery</h1>
+                                <p>A collection of our recent work across different photography genres. Each image tells a unique story.</p>
+                            </div>
+                        </section>
+                        
+                        <section class="gallery-page">
+                            <div class="container">
+                                <div class="gallery-categories">
+                                    <button class="category-btn active" data-category="all">All</button>
+                                    <button class="category-btn" data-category="portrait">Portraits</button>
+                                    <button class="category-btn" data-category="wedding">Weddings</button>
+                                    <button class="category-btn" data-category="commercial">Commercial</button>
+                                    <button class="category-btn" data-category="event">Events</button>
+                                </div>
+                                
+                                <div class="gallery-full" id="galleryContainer">
+                                    <!-- Gallery items will be loaded here -->
+                                </div>
+                            </div>
+                        </section>
+                    `;
+                    
+                    // Initialize gallery with images
+                    setTimeout(() => {
+                        initializeGallery();
+                    }, 100);
+                    break;
+                    
+                case 'contact':
+                    mainContent.innerHTML = `
+                        <section class="page-hero">
+                            <div class="container">
+                                <h1>Contact Us</h1>
+                                <p>Let's create something incredible together. Reach out to discuss your photography project or schedule a consultation.</p>
+                            </div>
+                        </section>
+                        
+                        <section class="contact-page">
+                            <div class="container">
+                                <div class="contact-section">
+                                    <div class="form-container">
+                                        <h2 class="form-title">Send a Message</h2>
+                                        <form id="contactForm">
+                                            <div class="form-group">
+                                                <label for="fullName">Full Name *</label>
+                                                <input type="text" id="fullName" class="input-field" placeholder="Enter your full name" required>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="email">Email Address *</label>
+                                                <input type="email" id="email" class="input-field" placeholder="your.email@example.com" required>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="phone">Phone Number (Optional)</label>
+                                                <input type="tel" id="phone" class="input-field" placeholder="+254 711 123 456">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="service">Type of Service *</label>
+                                                <select id="service" class="select-field" required>
+                                                    <option value="" disabled selected>Select a service</option>
+                                                    <option value="portrait">Portrait Photography</option>
+                                                    <option value="wedding">Wedding Photography</option>
+                                                    <option value="commercial">Commercial Photography</option>
+                                                    <option value="event">Event Coverage</option>
+                                                    <option value="product">Product Photography</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="message">Message *</label>
+                                                <textarea id="message" class="textarea-field" placeholder="Tell me about your project, timeline, and any specific requirements..." required></textarea>
+                                            </div>
+                                            
+                                            <button type="submit" class="submit-btn">
+                                                <i class="fas fa-paper-plane"></i> Send Message
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="contact-info">
+                                        <div class="info-card">
+                                            <h3 class="info-title"><i class="fas fa-envelope"></i> Contact Details</h3>
+                                            <div class="info-detail">
+                                                <i class="fas fa-envelope"></i>
+                                                <span>studio@luminaphoto.co.ke</span>
+                                            </div>
+                                            <div class="info-detail">
+                                                <i class="fas fa-phone"></i>
+                                                <span>+254 711 123 456</span>
+                                            </div>
+                                            <div class="info-detail">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                <span>Westlands Road, Nairobi, Kenya</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="info-card">
+                                            <h3 class="info-title"><i class="fas fa-clock"></i> Studio Hours</h3>
+                                            <div class="info-detail">
+                                                <i class="fas fa-calendar-day"></i>
+                                                <span>Monday - Friday: 9:00 AM - 6:00 PM</span>
+                                            </div>
+                                            <div class="info-detail">
+                                                <i class="fas fa-calendar-day"></i>
+                                                <span>Saturday: 10:00 AM - 4:00 PM</span>
+                                            </div>
+                                            <div class="info-detail">
+                                                <i class="fas fa-calendar-day"></i>
+                                                <span>Sunday: By appointment only</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="info-card">
+                                            <h3 class="info-title"><i class="fas fa-share-alt"></i> Connect With Me</h3>
+                                            <p style="color: var(--text-gray); margin-bottom: 20px;">Follow for behind-the-scenes, latest work, and photography tips.</p>
+                                            <div class="social-links">
+                                                <a href="#" class="social-link" aria-label="Instagram">
+                                                    <i class="fab fa-instagram"></i>
+                                                </a>
+                                                <a href="#" class="social-link" aria-label="Twitter">
+                                                    <i class="fab fa-twitter"></i>
+                                                </a>
+                                                <a href="#" class="social-link" aria-label="LinkedIn">
+                                                    <i class="fab fa-linkedin-in"></i>
+                                                </a>
+                                                <a href="#" class="social-link" aria-label="Pinterest">
+                                                    <i class="fab fa-pinterest-p"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <section class="map-section">
+                                    <h2 class="map-title">Nairobi Studio Location</h2>
+                                    <div class="map-container">
+                                        <div class="map-overlay"></div>
+                                        <iframe 
+                                            class="map-frame"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8151082624414!2d36.82141557468756!3d-1.283043298704493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d664f5d36f%3A0x8846d3a5e5b3c5c7!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1709750618232!5m2!1sen!2ske"
+                                            allowfullscreen="" 
+                                            loading="lazy"
+                                            aria-label="Map showing studio location in Nairobi, Kenya">
+                                        </iframe>
+                                    </div>
+                                </section>
+                            </div>
+                        </section>
+                    `;
+                    
+                    // Initialize contact form functionality
+                    setTimeout(() => {
+                        initializeContactForm();
+                    }, 100);
+                    break;
+                    
+                default:
+                    // Home page is already loaded
+                    break;
+            }
+            
+            // Scroll to top when loading new page
+            window.scrollTo(0, 0);
+        }
+        
+        // Gallery functionality
+        function initializeGallery() {
+            const galleryImages = [
+                { src: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', category: 'portrait', title: 'Portrait Session' },
+                { src: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', category: 'wedding', title: 'Wedding Day' },
+                { src: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w-800&q=80', category: 'commercial', title: 'Product Shoot' },
+                { src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', category: 'event', title: 'Corporate Event' },
+                { src: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', category: 'portrait', title: 'Fashion Portrait' },
+                { src: 'https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', category: 'wedding', title: 'Wedding Ceremony' },
+                { src: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', category: 'commercial', title: 'Brand Campaign' },
+                { src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', category: 'event', title: 'Music Festival' },
+                { src: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', category: 'portrait', title: 'Creative Portrait' },
+                { src: 'https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', category: 'wedding', title: 'Bridal Portrait' },
+                { src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', category: 'commercial', title: 'Business Headshot' },
+                { src: 'https://images.unsplash.com/photo-1501281668745-f6f2612e4e21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', category: 'event', title: 'Conference' }
+            ];
+            
+            const galleryContainer = document.getElementById('galleryContainer');
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            // Render gallery items
+            function renderGallery(category = 'all') {
+                galleryContainer.innerHTML = '';
+                
+                const filteredImages = category === 'all' 
+                    ? galleryImages 
+                    : galleryImages.filter(img => img.category === category);
+                
+                filteredImages.forEach(image => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    galleryItem.setAttribute('data-category', image.category);
+                    galleryItem.innerHTML = `
+                        <img src="${image.src}" alt="${image.title}">
+                        <div class="gallery-overlay">
+                            <h3>${image.title}</h3>
+                        </div>
+                    `;
+                    galleryContainer.appendChild(galleryItem);
+                });
+            }
+            
+            // Initial render
+            renderGallery();
+            
+            // Category filter functionality
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Filter gallery
+                    const category = button.getAttribute('data-category');
+                    renderGallery(category);
+                });
+            });
+        }
+        
+        // Contact form functionality
+        function initializeContactForm() {
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('fullName').value;
+                    const email = document.getElementById('email').value;
+                    const service = document.getElementById('service').value;
+                    
+                    // Simple validation
+                    if (!name || !email || !service) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+                    
+                    // Add animation to submit button
+                    const submitBtn = contactForm.querySelector('.submit-btn');
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                    submitBtn.classList.add('submitted');
+                    
+                    // Reset form after 3 seconds
+                    setTimeout(() => {
+                        contactForm.reset();
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                        submitBtn.classList.remove('submitted');
+                        
+                        // Show success message
+                        alert(`Thank you, ${name}! Your message has been sent. We'll get back to you at ${email} regarding your ${service} inquiry within 24 hours.`);
+                    }, 3000);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
