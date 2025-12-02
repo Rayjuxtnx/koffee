@@ -39,6 +39,42 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+        /* Hide nav links on mobile */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background: #fff;        /* match your design */
+    position: absolute;
+    top: 70px;               /* sits under your nav */
+    right: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 9999;
+}
+
+/* Show menu when active */
+.nav-links.active {
+    display: flex;
+}
+
+/* Hide mobile menu button on desktop */
+@media (min-width: 768px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+    }
+}
+
 
         /* Header & Navigation */
         header {
@@ -477,7 +513,8 @@
     </style>
 </head>
 <body>
- <!-- Header -->
+    
+ <!-- Navigation Header -->
     <header>
         <div class="container">
             <nav>
@@ -496,6 +533,7 @@
             </nav>
         </div>
     </header>
+    
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -600,40 +638,29 @@
         </div>
     </section>
 
-    <!-- Map Section -->
-  <section class="map-section container">
-    <h2 class="map-title">Nairobi Studio Location</h2>
-    <div class="map-container">
-        <div class="map-overlay"></div>
-        <iframe 
-            class="map-frame"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8151082624414!2d36.82141557468756!3d-1.283043298704493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d664f5d36f%3A0x8846d3a5e5b3c5c7!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1709750618232!5m2!1sen!2ske"
-            allowfullscreen="" 
-            loading="lazy"
-            aria-label="Map showing studio location in Nairobi, Kenya">
-        </iframe>
-    </div>
-</section>
-    <!-- Call to Action -->
-    <section class="cta-section container">
-        <h2 class="cta-title">Let's create something incredible</h2>
-        <p class="cta-subtitle">Every project begins with a conversation. Reach out today to discuss your vision, and let's transform your ideas into stunning visual stories.</p>
-    </section>
+ <script>
+    /* -----------------------------------------------------
+       MOBILE MENU TOGGLE (ADDED - REQUIRED FOR NAV TO WORK)
+    ----------------------------------------------------- */
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-logo">Blu Koffee Studios</div>
-            <p>Capturing moments that tell your unique story</p>
-            <div class="copyright">
-                &copy; 2023 Blu Koffee Studios. All rights reserved.
-            </div>
-        </div>
-    </footer>
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    }
 
-    <script>
-        // Form submission with animation
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+    /* -----------------------------------------------------
+       YOUR ORIGINAL CONTACT PAGE JS (UNCHANGED)
+    ----------------------------------------------------- */
+
+    // Form submission with animation
+    const contactForm = document.getElementById('contactForm');
+
+    // Only run the form code IF the form exists
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Get form values
@@ -654,7 +681,7 @@
             
             // Reset form after 3 seconds
             setTimeout(() => {
-                document.getElementById('contactForm').reset();
+                contactForm.reset();
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
                 submitBtn.classList.remove('submitted');
                 
@@ -662,39 +689,38 @@
                 alert(`Thank you, ${name}! Your message has been sent. I'll get back to you at ${email} regarding your ${service} inquiry within 24 hours.`);
             }, 3000);
         });
+    }
+    
+    // Add focus effects to form fields
+    const formFields = document.querySelectorAll('.input-field, .select-field, .textarea-field');
+    
+    formFields.forEach(field => {
+        // Add focus effect
+        field.addEventListener('focus', function() {
+            this.parentElement.style.transform = 'translateY(-2px)';
+        });
         
-        // Add focus effects to form fields
-        const formFields = document.querySelectorAll('.input-field, .select-field, .textarea-field');
-        
-        formFields.forEach(field => {
-            // Add focus effect
-            field.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'translateY(-2px)';
-            });
+        // Remove focus effect
+        field.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Add smooth scroll to anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
             
-            // Remove focus effect
-            field.addEventListener('blur', function() {
-                this.parentElement.style.transform = 'translateY(0)';
-            });
+            const targetId = this.getAttribute('href');
+            if(targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
         });
-        
-        // Add smooth scroll to anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+    });
+</script>
